@@ -1,0 +1,28 @@
+movie_database = [
+
+    {"Title": "Fast&Furious", "timeframe": "modern", "genre": "action", "sequels": "yes"}
+]
+
+while True:
+  print("Answer some questions to find a movie to watch. \n")
+
+  timeframe = input("what time period do you want the movie to take place in? (historical, modern, futuristic): ").lower()
+  genre =  input("What genre movies do you like? (action, comedy, drama, horror, romance, science fiction): ").lower()
+  sequels = input("do you want a movie with sequels? (Yes or No): ").lower()
+
+  recommendation = None
+  for movie in movie_database:
+    if (
+        movie["timeframe"] == timeframe and
+        movie["genre"] == genre and
+        movie["sequels"] == sequels
+    ):
+      recommendation = movie["Title"]
+      break
+  if recommendation:
+    print(f"\n The recommended movie is: {recommendation} \n")
+  else:
+    print("No movie matches your choices")
+  redo = (input("Would you like to choose again?: ")).lower()
+  if redo != "yes":
+    break
